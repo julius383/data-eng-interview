@@ -14,6 +14,8 @@ in pkgs.mkShell rec {
         (pkgs.python3.buildEnv.override {
             ignoreCollisions = true;
             extraLibs = with pkgs.python3.pkgs; [
+                # package list: https://search.nixos.org/packages
+                # be parsimonious with 3rd party dependencies; better to show off your own code than someone else's
                 ipython
                 nose
             ];
