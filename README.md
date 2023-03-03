@@ -5,7 +5,7 @@ A technical interview project for data engineers.
 The objective is to write a python program that will collect as many logos as you can across across a sample of websites.
 
 
-# Objectives
+## Objectives
 
 * Write a program that will crawl a list of website and output their logo URLs.
 * The program should read domain names on `STDIN` and write a CSV of domain and logo URL to `STDOUT`.
@@ -19,3 +19,27 @@ The objective is to write a python program that will collect as many logos as yo
 * We use [Nix](https://nixos.org/nix/) for package management. If you add your dependencies to `default.nix`, then it's easy for us to run your code. Install nix and launch the environment with `nix-shell` (works on Linux, macOS, and most unixes).
 
 There's no time limit. Spend as much or as little time on it as you'd like. Clone this git repository (don't fork), and push to a new repository when you're ready to share. We'll schedule a follow-up call to review.
+
+
+## Dependencies
+
+The following Python packages are used:
+
+* aiohttp - async requests
+    * aiodns - speeding up DNS resolving client
+    * brotli - compression algorithm
+    * cchardet - charset detection
+* beautifulsoup4 - extracting information from HTML
+* tqdm - progress bar
+
+
+## Running
+
+Either install the above dependencies with `pip install` or use 
+`nix-shell` to set-up the environment defined in `default.nix`. The 
+scraper can then be executed by running the following in the 
+project's base directory:
+
+```
+python py/logocrawler/main.py < websites.csv > output.csv
+```
